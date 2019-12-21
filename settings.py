@@ -13,6 +13,30 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     {
+        'name': 'vickrey_auction',
+        'display_name': "(改)Vickrey Auction",
+        'num_demo_participants': 3,
+        'app_sequence': ['vickrey_auction', 'payment_info'],
+    },
+    {
+        'name': 'dic_ult_tru_pub',
+        'display_name': "(未改変)独裁者，最終提案，信頼，公共財ゲーム",
+        'num_demo_participants': 6,
+        'app_sequence': ['dictator', 'ultimatum', 'trust', 'exppublic_goods'],
+    },
+    {
+        'name': 'svo',
+        'display_name': "(未改変)Social Value Orientation",
+        'num_demo_participants': 4,
+        'app_sequence': ['svo'],
+    },
+    {
+        'name': 'public_goods',
+        'display_name': "(未改変)公共財ゲーム",
+        'num_demo_participants': 3,
+        'app_sequence': ['public_goods'],
+    },
+    {
         'name': 'repeat_public_goods',
         'display_name': "(未改変)繰り返し公共財ゲーム",
         'num_demo_participants': 3,
@@ -265,30 +289,6 @@ SESSION_CONFIGS = [
         'display_name': '(未改変)災害経験',
         'num_demo_participants': 1,
         'app_sequence': ['FW_disaster'],
-    },
-    {
-        'name': 'svo',
-        'display_name': "Social Value Orientation",
-        'num_demo_participants': 4,
-        'app_sequence': ['svo'],
-    },
-    {
-        'name': 'public_goods',
-        'display_name': "公共財ゲーム",
-        'num_demo_participants': 3,
-        'app_sequence': ['public_goods'],
-    },
-    {
-        'name': 'dic_ult_tru_pub',
-        'display_name': "独裁者，最終提案，信頼，公共財ゲーム",
-        'num_demo_participants': 6,
-        'app_sequence': ['dictator', 'ultimatum', 'trust', 'exppublic_goods'],
-    },
-    {
-        'name': 'vickrey_auction',
-        'display_name': "Vickrey Auction",
-        'num_demo_participants': 3,
-        'app_sequence': ['vickrey_auction', 'payment_info'],
     },
     {
         'name': 'principal_agent',
