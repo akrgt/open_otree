@@ -13,6 +13,184 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     {
+        'name': 'repeat_public_goods',
+        'display_name': "(未改変)繰り返し公共財ゲーム",
+        'num_demo_participants': 3,
+        'app_sequence': ['repeat_public_goods'],
+    },
+    {
+        'name': 'ind_info_and_exppublic_goods',
+        'display_name': '(未改変)個人情報と公共財ゲーム',
+        'num_demo_participants': 3,
+        'app_sequence': ['exppublic_goods', 'ind_info'],
+    },
+    {
+        'name': 'guess_two_thirds',
+        'display_name': "(未改変)美人コンテスト",
+        'num_demo_participants': 3,
+        'app_sequence': ['guess_two_thirds'],
+    },
+    {
+        'name': 'volunteer_dilemma',
+        'display_name': "(未改変)Volunteer's Dilemma",
+        'num_demo_participants': 3,
+        'app_sequence': ['volunteer_dilemma', 'payment_info'],
+    },
+    {
+        'name': 'common_value_auction',
+        'display_name': "(未改変)共通価値オークション",
+        'num_demo_participants': 3,
+        'app_sequence': ['common_value_auction'],
+    },
+    {
+        'name': 'public_goods_simple',
+        'display_name': "(未改変)練習用の単純な公共財ゲーム",
+        'num_demo_participants': 3,
+        'app_sequence': ['public_goods_simple', 'survey', 'payment_info'],
+    },
+    {
+        'name': 'three_ultimatum',
+        'display_name': '(未改変)三人独裁者ゲーム',
+        'num_demo_participants': 3,
+        'app_sequence': ['three_ultimatum'],
+    },
+    {
+        'name': 'trust_simple',
+        'display_name': "(改)練習用の単純な信頼ゲーム",
+        'num_demo_participants': 2,
+        'app_sequence': ['trust_simple'],
+    },
+    {
+        'name': 'trust',
+        'display_name': "(未改変)信頼ゲーム",
+        'num_demo_participants': 2,
+        'app_sequence': ['trust'],
+    },
+    {
+        'name': 'dictator_ultimatum_non_strategy',
+        'display_name': "(未改変)独裁者と直接応答法による最終提案ゲーム",
+        'num_demo_participants': 2,
+        'app_sequence': ['dictator', 'ultimatum'],
+        'treatment': 'direct_response',
+    },
+    {
+        'name': 'ultimatum',
+        'display_name': "(未改変)ストラテジーメソッドと直接応答法が混ざっている最終提案ゲーム",
+        'num_demo_participants': 2,
+        'app_sequence': ['ultimatum'],
+    },
+    {
+        'name': 'repeat_ultimatum',
+        'display_name': "(改)10期繰り返しストラテジーメソッドと直接応答法が混ざっている最終提案ゲーム",
+        'num_demo_participants': 2,
+        'app_sequence': ['ultimatum10'],
+    },
+    {
+        'name': 'ultimatum_strategy',
+        'display_name': "(未改変)ストラテジーメソッドによる最終提案ゲーム",
+        'num_demo_participants': 2,
+        'app_sequence': ['ultimatum'],
+        'treatment': 'strategy',
+    },
+    {
+        'name': 'repeat_ultimatum_strategy',
+        'display_name': "(改)10期繰り返しストラテジーメソッドによる最終提案ゲーム",
+        'num_demo_participants': 2,
+        'app_sequence': ['ultimatum10'],
+        'treatment': 'repeat_strategy',
+    },
+    {
+        'name': 'ultimatum_non_strategy',
+        'display_name': "(未改変)直接応答法による最終提案ゲーム",
+        'num_demo_participants': 2,
+        'app_sequence': ['ultimatum'],
+        'treatment': 'direct_response',
+    },
+    {
+        'name': 'repeat_ultimatum_non_strategy',
+        'display_name': "(改)10期繰り返し直接応答法による最終提案ゲーム",
+        'num_demo_participants': 2,
+        'app_sequence': ['ultimatum10'],
+        'treatment': 'repeat_direct_response',
+    },
+    {
+        'name': 'cournot',
+        'display_name': "(未改変)Cournot Competition",
+        'num_demo_participants': 2,
+        'app_sequence': [
+            'cournot', 'payment_info'
+        ],
+    },
+    {
+        'name': 'repeat_dictator',
+        'display_name': "(改)10期繰り返し独裁者ゲーム",
+        'num_demo_participants': 2,
+        'app_sequence': ['dictator10'],
+    },
+    {
+        'name': 'dictator',
+        'display_name': "(改)独裁者ゲーム",
+        'num_demo_participants': 2,
+        'app_sequence': ['dictator'],
+    },
+    {
+        'name': 'matching_pennies',
+        'display_name': "(未改変)マッチングペニー",
+        'num_demo_participants': 2,
+        'app_sequence': [
+            'matching_pennies',
+        ],
+    },
+    {
+        'name': 'traveler_dilemma',
+        'display_name': "(未改変)旅人のジレンマ",
+        'num_demo_participants': 2,
+        'app_sequence': ['traveler_dilemma', 'payment_info'],
+    },
+    {
+        'name': 'bargaining',
+        'display_name': "(未改変)Bargaining Game",
+        'num_demo_participants': 2,
+        'app_sequence': ['bargaining', 'payment_info'],
+    },
+    {
+        'name': 'stackelberg',
+        'display_name': "(未改変)Stackelberg Competition",
+        'real_world_currency_per_point': 0.01,
+        'num_demo_participants': 2,
+        'app_sequence': [
+            'stackelberg', 'payment_info'
+        ],
+    },
+    {
+        'name': 'bertrand',
+        'display_name': "(未改変)Bertrand Competition",
+        'num_demo_participants': 2,
+        'app_sequence': [
+            'bertrand', 'payment_info'
+        ],
+    },
+    {
+        'name': 'prisoner',
+        'display_name': "(未改変)1回限り囚人のジレンマ",
+        'num_demo_participants': 2,
+        'app_sequence': ['prisoner'],
+    },
+    {
+        'name': 'repeat_prisoner',
+        'display_name': "(改)繰り返し囚人のジレンマ(10回)",
+        'num_demo_participants': 2,
+        'app_sequence': ['repeat_prisoner'],
+    },
+    {
+        'name': 'battle_of_the_sexes',
+        'display_name': "(未改変)男女の闘い",
+        'num_demo_participants': 2,
+        'app_sequence': [
+            'battle_of_the_sexes', 'payment_info'
+        ],
+    },
+    {
         'name': 'real_effort',
         'display_name': "(改)Real-effort transcription task",
         'num_demo_participants': 1,
@@ -100,89 +278,11 @@ SESSION_CONFIGS = [
         'num_demo_participants': 3,
         'app_sequence': ['public_goods'],
     },
-
-    {
-        'name': 'repeat_public_goods',
-        'display_name': "繰り返し公共財ゲーム",
-        'num_demo_participants': 3,
-        'app_sequence': ['repeat_public_goods'],
-    },
-    {
-        'name': 'ind_info_and_exppublic_goods',
-        'display_name': '個人情報と公共財ゲーム',
-        'num_demo_participants': 3,
-        'app_sequence': ['exppublic_goods', 'ind_info'],
-    },
-    {
-        'name': 'dictator_ultimatum_non_strategy',
-        'display_name': "独裁者と直接応答法による最終提案ゲーム",
-        'num_demo_participants': 2,
-        'app_sequence': ['dictator', 'ultimatum'],
-        'treatment': 'direct_response',
-    },
     {
         'name': 'dic_ult_tru_pub',
         'display_name': "独裁者，最終提案，信頼，公共財ゲーム",
         'num_demo_participants': 6,
         'app_sequence': ['dictator', 'ultimatum', 'trust', 'exppublic_goods'],
-    },
-    {
-        'name': 'trust',
-        'display_name': "信頼ゲーム",
-        'num_demo_participants': 2,
-        'app_sequence': ['trust'],
-    },
-    {
-        'name': 'guess_two_thirds',
-        'display_name': "美人コンテスト",
-        'num_demo_participants': 3,
-        'app_sequence': ['guess_two_thirds'],
-    },
-    {
-        'name': 'prisoner',
-        'display_name': "1回限り囚人のジレンマ",
-        'num_demo_participants': 2,
-        'app_sequence': ['prisoner'],
-    },
-    {
-        'name': 'ultimatum',
-        'display_name': "ストラテジーメソッドと直接応答法が混ざっている最終提案ゲーム",
-        'num_demo_participants': 2,
-        'app_sequence': ['ultimatum'],
-    },
-    {
-        'name': 'repeat_ultimatum',
-        'display_name': "10期繰り返しストラテジーメソッドと直接応答法が混ざっている最終提案ゲーム",
-        'num_demo_participants': 2,
-        'app_sequence': ['ultimatum'],
-    },
-    {
-        'name': 'ultimatum_strategy',
-        'display_name': "ストラテジーメソッドによる最終提案ゲーム",
-        'num_demo_participants': 2,
-        'app_sequence': ['ultimatum'],
-        'treatment': 'strategy',
-    },
-    {
-        'name': 'repeat_ultimatum_strategy',
-        'display_name': "10期繰り返しストラテジーメソッドによる最終提案ゲーム",
-        'num_demo_participants': 2,
-        'app_sequence': ['ultimatum'],
-        'treatment': 'repeat_strategy',
-    },
-    {
-        'name': 'ultimatum_non_strategy',
-        'display_name': "直接応答法による最終提案ゲーム",
-        'num_demo_participants': 2,
-        'app_sequence': ['ultimatum'],
-        'treatment': 'direct_response',
-    },
-    {
-        'name': 'repeat_ultimatum_non_strategy',
-        'display_name': "10期繰り返し直接応答法による最終提案ゲーム",
-        'num_demo_participants': 2,
-        'app_sequence': ['ultimatum'],
-        'treatment': 'repeat_direct_response',
     },
     {
         'name': 'vickrey_auction',
@@ -191,81 +291,10 @@ SESSION_CONFIGS = [
         'app_sequence': ['vickrey_auction', 'payment_info'],
     },
     {
-        'name': 'volunteer_dilemma',
-        'display_name': "Volunteer's Dilemma",
-        'num_demo_participants': 3,
-        'app_sequence': ['volunteer_dilemma', 'payment_info'],
-    },
-    {
-        'name': 'cournot',
-        'display_name': "Cournot Competition",
-        'num_demo_participants': 2,
-        'app_sequence': [
-            'cournot', 'payment_info'
-        ],
-    },
-    {
         'name': 'principal_agent',
         'display_name': "Principal Agent",
         'num_demo_participants': 2,
         'app_sequence': ['principal_agent', 'payment_info'],
-    },
-    {
-        'name': 'dictator',
-        'display_name': "独裁者ゲーム",
-        'num_demo_participants': 2,
-        'app_sequence': ['dictator'],
-    },
-
-
-    {
-        'name': 'repeat_dictator',
-        'display_name': "10期繰り返し独裁者ゲーム",
-        'num_demo_participants': 2,
-        'app_sequence': ['dictator'],
-    },
-    {
-        'name': 'matching_pennies',
-        'display_name': "マッチングペニー",
-        'num_demo_participants': 2,
-        'app_sequence': [
-            'matching_pennies',
-        ],
-    },
-    {
-        'name': 'traveler_dilemma',
-        'display_name': "旅人のジレンマ",
-        'num_demo_participants': 2,
-        'app_sequence': ['traveler_dilemma', 'payment_info'],
-    },
-    {
-        'name': 'bargaining',
-        'display_name': "Bargaining Game",
-        'num_demo_participants': 2,
-        'app_sequence': ['bargaining', 'payment_info'],
-    },
-    {
-        'name': 'common_value_auction',
-        'display_name': "共通価値オークション",
-        'num_demo_participants': 3,
-        'app_sequence': ['common_value_auction'],
-    },
-    {
-        'name': 'stackelberg',
-        'display_name': "Stackelberg Competition",
-        'real_world_currency_per_point': 0.01,
-        'num_demo_participants': 2,
-        'app_sequence': [
-            'stackelberg', 'payment_info'
-        ],
-    },
-    {
-        'name': 'bertrand',
-        'display_name': "Bertrand Competition",
-        'num_demo_participants': 2,
-        'app_sequence': [
-            'bertrand', 'payment_info'
-        ],
     },
     {
         'name': 'lemon_market',
@@ -274,43 +303,6 @@ SESSION_CONFIGS = [
         'app_sequence': [
             'lemon_market'
         ],
-    },
-    {
-        'name': 'battle_of_the_sexes',
-        'display_name': "男女の闘い",
-        'num_demo_participants': 2,
-        'app_sequence': [
-            'battle_of_the_sexes', 'payment_info'
-        ],
-    },
-    {
-        'name': 'public_goods_simple',
-        'display_name': "練習用の単純な公共財ゲーム",
-        'num_demo_participants': 3,
-        'app_sequence': ['public_goods_simple', 'survey', 'payment_info'],
-    },
-    {
-        'name': 'trust_simple',
-        'display_name': "練習用の単純な信頼ゲーム",
-        'num_demo_participants': 2,
-        'app_sequence': ['trust_simple'],
-    },
-
-
-
-    {
-        'name': 'repeat_prisoner',
-        'display_name': "繰り返し囚人のジレンマ(10回)",
-        'num_demo_participants': 2,
-        'app_sequence': ['repeat_prisoner'],
-
-    },
-
-    {
-        'name': 'three_ultimatum',
-        'display_name': '三人独裁者ゲーム',
-        'num_demo_participants': 3,
-        'app_sequence': ['three_ultimatum'],
     },
     {
         'name': 'svotree2',
