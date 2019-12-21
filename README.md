@@ -14,6 +14,13 @@ otree本体の日本語訳が間違っているのが問題のようです.
 にあります.  
 ただ、ここを書き換えても表示は直らないんですよね...
 
+ストラテジーメソッドと直接応答法が混ざっている最終提案ゲーム
+動いていますが、意図する実験になっているか不明なので保留します.
+
+social value orientation
+ボタンが押せるようになるまでの時間が長いので、意図しない動作ならば修正対象になるかもしれません.
+
+
 ### 改修点
 #### pggfg/pggfg5  
 起動しない理由として
@@ -36,3 +43,29 @@ models.py/class Player/def set_payoffに　q_countryを追加.
 
 #### real_effort
 Results.htmlに next_button を追加
+
+#### repeat_prisoner
+vies.py/class Introduction にis_displayedを追加.
+(1ラウンド目にだけ説明文が表示されるように変更)
+
+#### dictator
+templates/dictator/Results.htmlのプレイヤー2の利益を
+offer(pages.py/class Resultsの'offer')に変更することでエラーを回避.
+
+#### dictator10
+repeat_dictatorを削除.
+dictatorフォルダを複製してdictator10を作成.
+models.py/class Constants/name_in_url を'dictator10'に
+(dictatorのままだと競合してエラーが出ました)
+pages.py/class Introductionに is_displayedを追加.
+
+#### ultimatum/ultimatum10
+繰り返し用のアプリケーションultimatum10を作成.
+treatmentの条件分岐で実験のラウンド数を変更できればアプリケーションが1個で済むのですが、いまのところ方法がみつかりません.
+
+#### trust_simple
+instructions_templateの項目が抜けていたので設定しエラーを回避.
+
+#### vickrey_auction
+入力フィールドが表示されなかったため、表記を書き換えて簡略化.
+必要な入力形式(選択式,スライドバーetc)等ありましたらまた作り直します.
