@@ -26,7 +26,7 @@ class Purchase(Page):
         return self.player.role() == '売り手／buyer'
 
     form_model = models.Group
-    form_fields = ['seller_id']
+    form_fields = ['bought_id']
 
 
 class ResultsWaitPage(WaitPage):
