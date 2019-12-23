@@ -25,6 +25,7 @@ rejectする際もeffortの選択をしないと進行できないバグがあ�
 
 lemon_market  
 class Groupとclass Playerでseller_idが2度使われているので,Group側をbought_id(買われたid)と変更して調整中です.
+(追記)class Groupのsale priceになぜか"Playerはsale priceというattributeを持っていない"という旨のエラーが出るので難航中です.
 
 ### 改修点
 #### pggfg/pggfg5  

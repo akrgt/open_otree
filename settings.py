@@ -14,7 +14,7 @@ SESSION_CONFIG_DEFAULTS = dict(
 SESSION_CONFIGS = [
     {
         'name': 'lemon_market',
-        'display_name': "(改)Lemon-Market Game",
+        'display_name': "(未完了)Lemon-Market Game",
         'num_demo_participants': 3,
         'app_sequence': [
             'lemon_market2'
