@@ -23,7 +23,7 @@ class SimpleWaitPage(WaitPage):
 
 class Purchase(Page):
     def is_displayed(self):
-        return self.player.role() == 'buyer'
+        return self.player.role() == '売り手／buyer'
 
     form_model = models.Group
     form_fields = ['seller_id']
