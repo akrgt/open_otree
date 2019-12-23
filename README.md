@@ -20,6 +20,8 @@ otree本体の日本語訳が間違っているのが問題のようです.
 social value orientation  
 ボタンが押せるようになるまでの時間が長いので、意図しない動作ならば修正対象になるかもしれません.
 
+Principal Agent  
+rejectする際もeffortの選択をしないと進行できないバグがあるので、分かり次第修正したいです.
 
 ### 改修点
 #### pggfg/pggfg5  
@@ -69,3 +71,9 @@ instructions_templateの項目が抜けていたので設定しエラーを回�
 #### vickrey_auction
 入力フィールドが表示されなかったため、表記を書き換えて簡略化.
 必要な入力形式(選択式,スライドバーetc)等ありましたらまた作り直します.
+
+#### svotree2
+svotreeのtemplatesフォルダを'svotree2'としてコピー
+
+#### principal_agent
+views.py/class Accept下のvars_for_templateにreturn_share,fixed_pay_intを加えてエラーを回避.

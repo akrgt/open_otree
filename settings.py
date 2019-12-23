@@ -13,6 +13,18 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     {
+        'name': 'principal_agent',
+        'display_name': "(改)Principal Agent",
+        'num_demo_participants': 2,
+        'app_sequence': ['principal_agent', 'payment_info'],
+    },
+    {
+        'name': 'svotree2',
+        'display_name': '(改)社会的価値指向性（SVO）テストDiscrete',
+        'num_demo_participants': 1,
+        'app_sequence': ['svotree2'],
+    },
+    {
         'name': 'vickrey_auction',
         'display_name': "(改)Vickrey Auction",
         'num_demo_participants': 3,
@@ -291,24 +303,12 @@ SESSION_CONFIGS = [
         'app_sequence': ['FW_disaster'],
     },
     {
-        'name': 'principal_agent',
-        'display_name': "Principal Agent",
-        'num_demo_participants': 2,
-        'app_sequence': ['principal_agent', 'payment_info'],
-    },
-    {
         'name': 'lemon_market',
         'display_name': "Lemon-Market Game",
         'num_demo_participants': 3,
         'app_sequence': [
             'lemon_market'
         ],
-    },
-    {
-        'name': 'svotree2',
-        'display_name': '社会的価値指向性（SVO）テストDiscrete',
-        'num_demo_participants': 1,
-        'app_sequence': ['svotree2'],
     },
     {
         'name': 'iat',
