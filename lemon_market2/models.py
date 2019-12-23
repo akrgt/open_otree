@@ -36,29 +36,39 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     sale_price = models.CurrencyField()
 
-    seller_id = models.PositiveIntegerField(
+    bought_id = models.PositiveIntegerField(
         choices=[(i, 'Buy from seller %i' % i) for i in
-                 range(1, Constants.players_per_group)] + [
-                    (0, 'Buy nothing')],
+                 range(1, Constants.players_per_group)] + [(0, 'Buy nothing')],
         widget=widgets.RadioSelect(),
         doc="""0 means no purchase made"""
     )  # seller index
 
     def set_payoff(self):
+        for i in self.get_players():
+            i.payoff = Constants.initial_endowment
+
+        if self.bought_id != 0:
+            seller = self.get_player_by_id(self.bought_id)
+            self.sale_price = self.seller.seller_proposed_price
+            seller.payoff += seller.seller_proposed_price - seller.seller_proposed_quality
+
+            buyer = self.get_player_by_role('買い主／buyer')
+            buyer.payoff += seller.seller_proposed_quality + 5 - seller.seller_proposed_price
+        """
         for p in self.get_players():
             p.payoff = Constants.initial_endowment
 
-        if self.seller_id is not 0:
+        if self.bought_id != 0:
             seller = self.get_seller()
             self.sale_price = seller.seller_proposed_price
 
             buyer = self.get_player_by_role('買い主／buyer')
             buyer.payoff += seller.seller_proposed_quality + 5 - seller.seller_proposed_price
             seller.payoff += seller.seller_proposed_price - seller.seller_proposed_quality
-
+        """
     def get_seller(self):
         for p in self.get_players():
-            if '売り主／seller' in p.role() and p.seller_id() == self.seller_id:
+            if '売り主／seller' in p.role() and p.bought_id() == self.seller_id():
                 return p
 
 
