@@ -13,6 +13,14 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     {
+        'name': 'lemon_market',
+        'display_name': "(改)Lemon-Market Game",
+        'num_demo_participants': 3,
+        'app_sequence': [
+            'lemon_market2'
+        ],
+    },
+    {
         'name': 'principal_agent',
         'display_name': "(改)Principal Agent",
         'num_demo_participants': 2,
@@ -301,14 +309,6 @@ SESSION_CONFIGS = [
         'display_name': '(未改変)災害経験',
         'num_demo_participants': 1,
         'app_sequence': ['FW_disaster'],
-    },
-    {
-        'name': 'lemon_market',
-        'display_name': "Lemon-Market Game",
-        'num_demo_participants': 3,
-        'app_sequence': [
-            'lemon_market'
-        ],
     },
     {
         'name': 'iat',
