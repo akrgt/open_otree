@@ -23,7 +23,7 @@ social value orientation
 Principal Agent  
 rejectする際もeffortの選択をしないと進行できないバグがあるので、分かり次第修正したいです.
 
-lemon_market  
+lemon_market(※解消済み)  
 class Groupとclass Playerでseller_idが2度使われているので,Group側をbought_id(買われたid)と変更して調整中です.  
 (追記)class Groupのsale priceになぜか"Playerはsale priceというattributeを持っていない"という旨のエラーが出るので難航中です.  
 (追記2)新しいapp"lemon"として再構築中
@@ -82,3 +82,8 @@ svotreeのtemplatesフォルダを'svotree2'としてコピー
 
 #### principal_agent
 views.py/class Accept下のvars_for_templateにreturn_share,fixed_pay_intを加えてエラーを回避.
+
+#### lemon
+lemon_marketの代わりに新たに作成.  
+class Constantsに辞書型で品質と価格のリストを作成.  
+Purchase.htmlで決定された品質を一時格納して、payoffの計算時に利用するようにしてエラーを回避.
