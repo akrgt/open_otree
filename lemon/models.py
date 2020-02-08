@@ -37,8 +37,8 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    sale_price = models.CurrencyField(initial=0)
-    sale_quality = models.StringField(initial="high")
+    sale_price = models.CurrencyField()
+    sale_quality = models.StringField()
 
     bought_id = models.PositiveIntegerField(
         choices=[(i, 'Buy from seller %i' % i) for i in
@@ -65,23 +65,6 @@ class Group(BaseGroup):
             seller = self.get_player_by_id(self.bought_id)
             seller.payoff += self.sale_price\
                 - Constants.product_list[self.sale_quality]
-        """
-        seller = self.get_player_by_id(self.bought_id)
-        Group.sale_price = seller.seller_proposed_price
-        Group.sale_quality = seller.seller_proposed_quality
-
-        seller.payoff += self.sale_price\
-            - Constants.product_list[self.sale_quality]
-        if self.bought_id != 0:
-            seller = self.get_player_by_id(self.bought_id)
-            self.sale_price = self.seller.seller_proposed_price
-            seller.payoff += self.seller.seller_proposed_price -\
-                Constants.product_list[self.seller_proposed_quality]
-
-            buyer = self.get_player_by_role('buyer')
-            buyer.payoff += Constants.product_list[self.seller_proposed_quality]\
-                + 5 - seller.seller_proposed_price
-        """
 
 
 class Player(BasePlayer):
