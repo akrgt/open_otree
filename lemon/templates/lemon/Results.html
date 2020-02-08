@@ -11,8 +11,9 @@
   {% if group.bought_id != 0 %}
     {% if player.role == 'buyer' %}
       あなたは売り手 {{ group.bought_id }}から<strong>{{ group.sale_price }}</strong>で購入することになりました．
+      あなたの購入品のクオリティは<strong>{{ group.sale_quality }}</strong>です.
     {% else %}
-      購入者は売り手 {{ group.bought_id }}から<strong>{{ group.sale_price }}</strong> で購入しました
+      購入者は品質<strong>{{ group.sale_quality }}</strong>の製品を<strong>{{ group.sale_price }}</strong> で購入しました.
     {% endif %}
   {% else %}
     {% if player.role == 'buyer' %}
