@@ -67,11 +67,8 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal()
     )
 
-    def seller_id(self):
-        return (self.id_in_group - 1)
-
     def role(self):
-        if self.id_in_group == 1:
+        if self.id_in_group == 3:
             return 'buyer'
         else:
-            return 'seller {}'.format(self.seller_id())
+            return 'seller {}'.format(self.id_in_group)
