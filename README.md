@@ -24,8 +24,9 @@ Principal Agent
 rejectする際もeffortの選択をしないと進行できないバグがあるので、分かり次第修正したいです.
 
 lemon_market  
-class Groupとclass Playerでseller_idが2度使われているので,Group側をbought_id(買われたid)と変更して調整中です.
-(追記)class Groupのsale priceになぜか"Playerはsale priceというattributeを持っていない"という旨のエラーが出るので難航中です.
+class Groupとclass Playerでseller_idが2度使われているので,Group側をbought_id(買われたid)と変更して調整中です.  
+(追記)class Groupのsale priceになぜか"Playerはsale priceというattributeを持っていない"という旨のエラーが出るので難航中です.  
+(追記2)新しいapp"lemon"として再構築中
 
 ### 改修点
 #### pggfg/pggfg5  

@@ -17,7 +17,7 @@ SESSION_CONFIGS = [
         'display_name': "(未完了)Lemon-Market Game",
         'num_demo_participants': 3,
         'app_sequence': [
-            'lemon_market2'
+            'lemon'
         ],
     },
     {

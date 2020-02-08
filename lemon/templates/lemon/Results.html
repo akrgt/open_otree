@@ -1,0 +1,27 @@
+{% extends "global/Base.html" %}
+{% load otree_tags %}
+
+{% block title %}
+結果( {{ Constants.num_rounds }}期中{{ subsession.round_number }} 期目)／Results (Period {{ subsession.round_number }} of {{ Constants.num_rounds }}
+)
+{% endblock %}
+
+{% block content %}
+  あなたは{{ player.role }}です.
+  {% if group.bought_id != 0 %}
+    {% if player.role == 'buyer' %}
+      あなたは売り手 {{ group.bought_id }}から<strong>{{ group.sale_price }}</strong>で購入することになりました．
+    {% else %}
+      購入者は売り手 {{ group.bought_id }}から<strong>{{ group.sale_price }}</strong> で購入しました
+    {% endif %}
+  {% else %}
+    {% if player.role == 'buyer' %}
+      You bought nothing in this period.
+    {% else %}
+      The buyer bought nothing in this period.
+    {% endif %}
+  {% endif %}
+  Thus your period payoff is <strong>{{ player.payoff }}</strong>.
+
+  <p> {% next_button %}</p>
+{% endblock %}
