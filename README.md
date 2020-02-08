@@ -87,3 +87,4 @@ views.py/class Accept下のvars_for_templateにreturn_share,fixed_pay_intを加�
 lemon_marketの代わりに新たに作成.  
 class Constantsに辞書型で品質と価格のリストを作成.  
 Purchase.htmlで決定された品質を一時格納して、payoffの計算時に利用するようにしてエラーを回避.
+文章の表示を元のアプリケーションに近づける余地が多く残っているのが課題.
