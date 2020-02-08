@@ -37,7 +37,8 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    sale_price = models.CurrencyField()
+    sale_price = models.CurrencyField(initial=0)
+    sale_quality = models.StringField(initial="high")
 
     bought_id = models.PositiveIntegerField(
         choices=[(i, 'Buy from seller %i' % i) for i in
@@ -46,9 +47,41 @@ class Group(BaseGroup):
         doc="""0 means no purchase made"""
     )
 
+    def set_sale_prices(self):
+        if self.bought_id != 0:
+            seller = self.get_player_by_id(self.bought_id)
+            self.sale_price = seller.seller_proposed_price
+            self.sale_quality = seller.seller_proposed_quality
+
     def set_payoff(self):
         for i in self.get_players():
             i.payoff = Constants.initial_endowment
+
+        if self.bought_id != 0:
+            buyer = self.get_player_by_role('buyer')
+            buyer.payoff += Constants.product_list[self.sale_quality] + 5\
+                - self.sale_price
+
+            seller = self.get_player_by_id(self.bought_id)
+            seller.payoff += self.sale_price\
+                - Constants.product_list[self.sale_quality]
+        """
+        seller = self.get_player_by_id(self.bought_id)
+        Group.sale_price = seller.seller_proposed_price
+        Group.sale_quality = seller.seller_proposed_quality
+
+        seller.payoff += self.sale_price\
+            - Constants.product_list[self.sale_quality]
+        if self.bought_id != 0:
+            seller = self.get_player_by_id(self.bought_id)
+            self.sale_price = self.seller.seller_proposed_price
+            seller.payoff += self.seller.seller_proposed_price -\
+                Constants.product_list[self.seller_proposed_quality]
+
+            buyer = self.get_player_by_role('buyer')
+            buyer.payoff += Constants.product_list[self.seller_proposed_quality]\
+                + 5 - seller.seller_proposed_price
+        """
 
 
 class Player(BasePlayer):
@@ -59,7 +92,6 @@ class Player(BasePlayer):
         verbose_name='Please indicate a price (from 0 to %i) you want to sell'
                      % Constants.initial_endowment
     )
-
     seller_proposed_quality = models.StringField(
         choices=list(Constants.product_list.keys()),
         verbose_name=('あなたが生産したい品質の製品を選んでください.'

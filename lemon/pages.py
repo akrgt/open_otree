@@ -28,6 +28,9 @@ class Purchase(Page):
     form_model = models.Group
     form_fields = ['bought_id']
 
+    def before_next_page(self):
+        self.group.set_sale_prices()
+
 
 class ResultsWaitPage(WaitPage):
     def after_all_players_arrive(self):
