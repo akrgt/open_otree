@@ -14,19 +14,19 @@ otree本体の日本語訳が間違っているのが問題のようです.
 にあります.  
 ただ、ここを書き換えても表示は直らないんですよね...
 
-ストラテジーメソッドと直接応答法が混ざっている最終提案ゲーム  
+#### ストラテジーメソッドと直接応答法が混ざっている最終提案ゲーム  
 動いていますが、意図する実験になっているか不明なので保留します.
 
-social value orientation  
+#### social value orientation  
 ボタンが押せるようになるまでの時間が長いので、意図しない動作ならば修正対象になるかもしれません.
 
-Principal Agent  
+#### Principal Agent  
 rejectする際もeffortの選択をしないと進行できないバグがあるので、分かり次第修正したいです.
 
 lemon_market(※解消済み)  
 class Groupとclass Playerでseller_idが2度使われているので,Group側をbought_id(買われたid)と変更して調整中です.  
 (追記)class Groupのsale priceになぜか"Playerはsale priceというattributeを持っていない"という旨のエラーが出るので難航中です.  
-(追記2)新しいapp"lemon"として再構築中
+(追記2)新しいapp"lemon"として再構築中→更新しました
 
 ### 改修点
 #### pggfg/pggfg5  
