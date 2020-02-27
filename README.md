@@ -22,8 +22,10 @@ otree本体の日本語訳が間違っているのが問題のようです.
 
 #### Principal Agent  
 rejectする際もeffortの選択をしないと進行できないバグがあるので、分かり次第修正したいです.
+（追記）rejectする際も'agent work effort'に値が入ってしまうのはあきらめて、ラジオボックスのチェック次第で入力フォームを非表示にする運用も有りかな、とは思います.  
+JavascriptかCSSが必要になるかもしれませんが...
 
-lemon_market(※解消済み)  
+#### lemon_market(※解消済み)  
 class Groupとclass Playerでseller_idが2度使われているので,Group側をbought_id(買われたid)と変更して調整中です.  
 (追記)class Groupのsale priceになぜか"Playerはsale priceというattributeを持っていない"という旨のエラーが出るので難航中です.  
 (追記2)新しいapp"lemon"として再構築中→更新しました
