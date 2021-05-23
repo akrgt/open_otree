@@ -131,19 +131,3 @@ body {
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
 }
-
-.rm-item {
-    margin-bottom: 3em;
-}
-
-.rm-cell {
-    padding: 0em 1em;
-}
-
-.rm-choice {
-    text-align: center;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-}
-
-

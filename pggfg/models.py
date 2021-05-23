@@ -2,16 +2,12 @@ from otree.api import (
     models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
     Currency as c, currency_range
 )
-import random
-from django import forms
-from django.forms.widgets import NumberInput
+
 from django.db import models as djmodels
 
 author = "Philip Chapkovski, chapkovski@gmail.com"
 
 doc = """
-処罰あり公共財ゲーム実験．
-https://github.com/chapkovski/fehr-and-gaechterにて公開されているものを日本語化しました．
 Public Good Game with Punishment (Fehr and Gaechter).
 Fehr, E. and Gachter, S., 2000.
  Cooperation and punishment in public goods experiments. American Economic Review, 90(4), pp.980-994.
@@ -22,7 +18,7 @@ class Constants(BaseConstants):
     name_in_url = 'pggfg'
     players_per_group = 3
     num_others_per_group = players_per_group - 1
-    num_rounds = 20
+    num_rounds = 3
     instructions_template = 'pggfg/Instructions.html'
     endowment = 20
     efficiency_factor = 1.6
@@ -30,11 +26,16 @@ class Constants(BaseConstants):
     punishment_factor = 3
 
 
+from django.db.models import Q, F
+
+
 class Subsession(BaseSubsession):
     def creating_session(self):
+        ps = []
         for p in self.get_players():
             for o in p.get_others_in_group():
-                Punishment.objects.create(sender=p, receiver=o, )
+                ps.append(Punishment(sender=p, receiver=o, ))
+        Punishment.objects.bulk_create(ps)
 
 
 class Group(BaseGroup):
@@ -51,18 +52,25 @@ class Group(BaseGroup):
                                - p.contribution,
                                + self.individual_share,
                                ])
+            p.set_punishment_endowment()
 
     def set_punishments(self):
         for p in self.get_players():
             p.set_punishment()
+        for p in self.get_players():
+            p.set_payoff()
 
 
 class Player(BasePlayer):
     contribution = models.PositiveIntegerField(
-        min=0, max=Constants.endowment,
-        doc="""プレイヤーによる貢献額""",
-        label="あなたはこのプロジェクトにいくら貢献しますか？ (0 から {}まで)？".format(Constants.endowment)
+        choices=range(0, Constants.endowment+1, 1),
+	min = 0,
+	max = 20,
+	initial=10,
+        label="あなたはこのプロジェクトにいくら貢献しますか？ (0 から {}まで)？".format(Constants.endowment),
+        widget=widgets.SliderInput
     )
+
     punishment_sent = models.IntegerField()
     punishment_received = models.IntegerField()
     pd_payoff = models.CurrencyField(doc='to store payoff from contribution stage')
@@ -82,6 +90,6 @@ class Player(BasePlayer):
 
 
 class Punishment(djmodels.Model):
-    sender = djmodels.ForeignKey(to=Player, on_delete=models.CASCADE, related_name='punishments_sent')
-    receiver = djmodels.ForeignKey(to=Player, on_delete=models.CASCADE, related_name='punishments_received')
-    amount = models.IntegerField(null=True, )
+    sender = djmodels.ForeignKey(to=Player, related_name='punishments_sent', on_delete=djmodels.CASCADE)
+    receiver = djmodels.ForeignKey(to=Player, related_name='punishments_received', on_delete=djmodels.CASCADE)
+    amount = models.IntegerField(min=0)

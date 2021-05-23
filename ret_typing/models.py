@@ -167,7 +167,7 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
 
-    def before_session_starts(self):
+    def creating_session(self):
 
         players = self.get_players()
         if 'task_timer' in self.session.config:

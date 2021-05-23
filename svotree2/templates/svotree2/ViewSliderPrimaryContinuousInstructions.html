@@ -1,4 +1,4 @@
-{% extends "svotree/Base.html" %}
+{% extends "svotree2/Base.html" %}
 {% load staticfiles otree_tags %}
 
 {% block title %}
@@ -9,7 +9,9 @@
 
     {% include Constants.instructions_slider with type="continuous" %}
 
+    <div align="right">
     <button class="btn btn-primary btn-large" id="continue_button" ><!--Continue-->続ける</button>
+    </div>
 
 {% endblock %}
 

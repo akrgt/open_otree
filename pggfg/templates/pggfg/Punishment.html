@@ -1,14 +1,15 @@
 {% extends "global/Page.html" %}
-{% load staticfiles otree_tags %}
+{% load otree %}
 
 {% block title %}
 ステージ 2: 処罰の決定  ({{ Constants.num_rounds }}期中{{ subsession.round_number }}期目)
 {% endblock %}
 
 {% block content %}
+
     <div class="card">
         <div class="card-header">
-            <b> ステージ2の説明</b>
+            <b> 第2ステージのインストラクション</b>
         </div>
         <div class="card-body">
             第2ステージでは，同じグループのメンバーの意思決定の結果を見ることができます．
@@ -20,34 +21,34 @@
 
 
 
-    {% if formset.non_form_errors %}
-        {% for error in formset.non_form_errors %}
-            <div class="alert alert-danger">
+    {% if form.non_form_errors %}
+        {% for error in form.non_form_errors %}
+            <div class="alert alert-danger mt-3">
                 {{ error }}
             </div>
         {% endfor %}
     {% endif %}
 
     <table class="table table-hover table-striped table-responsive">
-        {{ formset.management_form }}
+        {{ form.management_form }}
         <thead>
         <tr>
             <th>プレイヤー：</th>
             <th>貢献額</th>
             <th>減額ポイント：</th>
-            <th>が減らされるポイント：</th>
+            <th>減らされるポイント：</th>
         </tr>
         </thead>
 
-        {% for form in formset.forms %}
+        {% for f in form.forms %}
             <tr>
-                <td>プレイヤー {{ forloop.counter }}</td>
-                <td>{{ form.instance.receiver.contribution }}</td>
-                <td>{% formfield form.amount label='' %}</td>
-                {% for hidden in form.hidden_fields %}
+                <td class="text-nowrap">プレイヤー {{ forloop.counter }}</td>
+                <td class="text-center">{{ f.instance.receiver.contribution }}</td>
+                <td>{% formfield f.amount label='' %}</td>
+                {% for hidden in f.hidden_fields %}
                     {{ hidden }}
                 {% endfor %}
-                <td id="{{ form.amount.id_for_label }}"></td>
+                <td id="{{ f.amount.id_for_label }}"></td>
             </tr>
 
         {% endfor %}
@@ -67,9 +68,19 @@
 
 {% block scripts %}
     <script>
+        const min_val = 0;
+        const max_val = {{ player.punishment_endowment|json }};
+        const pun_factor = {{ Constants.punishment_factor|json }};
         $(function () {
-            var pun_factor = {{ Constants.punishment_factor|json }};
+
             $('div.field-amount input').on('input', function () {
+                var curvalue = $(this).val();
+                if (curvalue < min_val) {
+                    $(this).val( min_val);
+                };
+                if (curvalue > max_val) {
+                    $(this).val( max_val);
+                }
                 var curvalue = $(this).val();
                 var punishment_sent = -curvalue * pun_factor;
                 $('td#' + $(this).attr('id')).html(punishment_sent);

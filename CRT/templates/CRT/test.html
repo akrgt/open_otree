@@ -1,0 +1,30 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+調査
+{% endblock %}
+
+{% block content %}
+<div>
+    <p>
+        以下の質問にお答え下さい．なお，決してウェブで検索などしたりせずにお答えください．<br>
+        また，数字を入力する際には必ず<strong>「半角数字」</strong>で入力してください．「個」などは入力しないで構いません．
+    </p>
+
+</div>
+<div style="background-color:#e6e6e6;">
+    {% formfield player.crt_bat with label="バットとボールが合わせて210円でした．バットはボールよりも200円高いです．さて，ボールの値段は何円でしょうか？" %}
+  </div>
+<div style="background-color:#e6e6e6;">
+    {% formfield player.crt_widget with label="5台の機械で5つの製品を作ると5分かかります．さて，100台の機械で100個の製品を作ると何分かかるでしょうか？"%}
+  </div>
+<div style="background-color:#e6e6e6;">
+    {% formfield player.crt_lake with label="湖には，スイレンの葉が浮かんでいます．毎日，スイレンの葉の大きさが2倍になるとします．48日経って湖全体をスイレンの葉が覆うとしたら，湖の半分を覆うのにかかる日数はどれくらいでしょうか？"%}
+</div>
+
+
+
+    {% next_button %}
+
+{% endblock %}

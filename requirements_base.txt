@@ -1,5 +1,2 @@
-django-jquery-ui==1.11.4.1
-otree-core>=1.0.0
-Django==1.8.8 # for heroku, needs to be explicitly in requirements file
-jsonfield>=1.0.3
-django-jquery-ui>=1.11.4.1
+# You should put your requirements in requirements.txt instead.
+# You can delete this file.

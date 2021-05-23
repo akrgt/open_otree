@@ -56,16 +56,7 @@ var allocation_bounds = {
     item3: {self_left: 50, self_right: 85, other_left: 100, other_right: 85},
     item4: {self_left: 50, self_right: 85, other_left: 100, other_right: 15},
     item5: {self_left: 100, self_right: 50, other_left: 50, other_right: 100},
-    item6: {self_left: 100, self_right: 85, other_left: 50, other_right: 85},
-    item7: {self_left: 100, self_right: 70, other_left: 50, other_right: 100},
-    item8: {self_left: 90, self_right: 100, other_left: 100, other_right: 90},
-    item9: {self_left: 100, self_right: 50, other_left: 70, other_right: 100},
-    item10: {self_left: 100, self_right: 90, other_left: 70, other_right: 100},
-    item11: {self_left: 70, self_right: 100, other_left: 100, other_right: 70},
-    item12: {self_left: 50, self_right: 100, other_left: 100, other_right: 90},
-    item13: {self_left: 50, self_right: 100, other_left: 100, other_right: 50},
-    item14: {self_left: 100, self_right: 70, other_left: 90, other_right: 100},
-    item15: {self_left: 90, self_right: 100, other_left: 100, other_right: 50}
+    item6: {self_left: 100, self_right: 85, other_left: 50, other_right: 85}
 };
 
 

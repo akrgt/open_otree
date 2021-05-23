@@ -1,0 +1,58 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+調査：
+{% endblock %}
+
+{% block content %}
+<div>
+  <p>
+      １から 10 までのことばがあなた自身にどのくらい当てはまるかについて，<br>
+      下の枠内の１から７までの数字のうちもっとも適切なものを選んでください．<br>
+      文章全体を総合的に見て，自分にどれだけ当てはまるかを評価してください．
+  </p>
+</div>
+
+<div style="background-color:#e6e6e6;">
+  {% formfield player.big5_1 %}
+</div>
+<div style="background-color:#e6e6e6;">
+  {% formfield player.big5_2 %}
+</div>
+<div style="background-color:#e6e6e6;">
+
+  {% formfield player.big5_3 %}
+</div>
+<div style="background-color:#e6e6e6;">
+
+  {% formfield player.big5_4 %}
+</div>
+<div style="background-color:#e6e6e6;">
+
+  {% formfield player.big5_5 %}
+</div>
+<div style="background-color:#e6e6e6;">
+
+  {% formfield player.big5_6 %}
+</div>
+<div style="background-color:#e6e6e6;">
+
+  {% formfield player.big5_7 %}
+</div>
+<div style="background-color:#e6e6e6;">
+
+  {% formfield player.big5_8 %}
+</div>
+<div style="background-color:#e6e6e6;">
+
+  {% formfield player.big5_9 %}
+</div>
+<div style="background-color:#e6e6e6;">
+
+  {% formfield player.big5_10 %}
+</div>
+
+    {% next_button %}
+
+{% endblock %}

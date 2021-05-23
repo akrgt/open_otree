@@ -1,10 +1,10 @@
 from . import models
 from ._builtin import Page, WaitPage
-from .functions import slider, tdm9
+from .functions import slider, tdm9, ring
 from otree.api import Currency as c, currency_range
 from .models import Constants
 
-class ViewSliderPrimaryDiscreteInstructions(Page):
+class ViewSliderPrimaryContinuousInstructions(Page):
     def before_next_page(self):
         self.player.set_payoff()
 
@@ -19,19 +19,10 @@ class SliderPrimaryDiscrete(Page):
                    'slider4',
                    'slider5',
                    'slider6',
-                   'slider7',
-                   'slider8',
-                   'slider9',
-                   'slider10',
-                   'slider11',
-                   'slider12',
-                   'slider13',
-                   'slider14',
-                   'slider15',
                 ]
 
     def vars_for_template(self):
-        return {'slider_items': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]}
+        return {'slider_items': [1, 2, 3, 4, 5, 6]}
 
     def before_next_page(self):
         chosen_values = {
@@ -41,15 +32,6 @@ class SliderPrimaryDiscrete(Page):
             'item4': self.player.slider4,
             'item5': self.player.slider5,
             'item6': self.player.slider6,
-            'item7': self.player.slider7,
-            'item8': self.player.slider8,
-            'item9': self.player.slider9,
-            'item10': self.player.slider10,
-            'item11': self.player.slider11,
-            'item12': self.player.slider12,
-            'item13': self.player.slider13,
-            'item14': self.player.slider14,
-            'item15': self.player.slider15
         }
         mean_allocations = slider.mean_allocations_discrete(chosen_values)
         svo_slider_angle = slider.svo_angle(mean_allocations['self'], mean_allocations['other'])
@@ -69,19 +51,10 @@ class SliderPrimaryContinuous(Page):
                    'slider4',
                    'slider5',
                    'slider6',
-                   'slider7',
-                   'slider8',
-                   'slider9',
-                   'slider10',
-                   'slider11',
-                   'slider12',
-                   'slider13',
-                   'slider14',
-                   'slider15',
                 ]
 
     def vars_for_template(self):
-        return {'slider_items': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]}
+        return {'slider_items': [1, 2, 3, 4, 5, 6]}
 
     def before_next_page(self):
         chosen_values = {
@@ -91,15 +64,6 @@ class SliderPrimaryContinuous(Page):
             'item4': self.player.slider4,
             'item5': self.player.slider5,
             'item6': self.player.slider6,
-            'item7': self.player.slider7,
-            'item8': self.player.slider8,
-            'item9': self.player.slider9,
-            'item10': self.player.slider10,
-            'item11': self.player.slider11,
-            'item12': self.player.slider12,
-            'item13': self.player.slider13,
-            'item14': self.player.slider14,
-            'item15': self.player.slider15
         }
         mean_allocations = slider.mean_allocations_continuous(chosen_values)
         svo_slider_angle = slider.svo_angle(mean_allocations['self'], mean_allocations['other'])
@@ -111,7 +75,7 @@ class ViewNineItemTDMInstructions(Page):
     def before_next_page(self):
         self.player.set_payoff()
 
-class ViewSliderPrimaryContinuousInstructions(Page):
+class ViewRingMeasureInstructions(Page):
     def before_next_page(self):
         self.player.set_payoff()
 
@@ -188,6 +152,10 @@ class RingMeasure(Page):
     ]
 
 
+    def vars_for_template(self):
+
+        return {'ring_measure_decisions': ring.decisions}
+
 
 class DebugDisplayPage(Page):
 
@@ -195,10 +163,8 @@ class DebugDisplayPage(Page):
         return {'angle': self.player.slider_angle, 'classification_slider': self.player.slider_classification, 'tdm_prosocial': self.player.nine_item_tdm_prosocial, 'tdm_individualistic': self.player.nine_item_tdm_individualistic, 'tdm_competitive': self.player.nine_item_tdm_competitive, 'classification_tdm': self.player.nine_item_tdm_classification}
 
 page_sequence = [
-    ViewNineItemTDMInstructions,
-    NineItemTDM,
-    ViewSliderPrimaryDiscreteInstructions,
-    SliderPrimaryDiscrete,
+    ViewSliderPrimaryContinuousInstructions,
+    SliderPrimaryContinuous,
 ]
 
 '''

@@ -1,0 +1,58 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+  調査：
+{% endblock %}
+
+{% block content %}
+<div>
+    <p>
+        あなた自身のことについてお尋ねします．<br>
+        以下の選択肢について，<strong>「全くあてはまらない」〜「非常にあてはまる」</strong>の5つの中から，最もあてはまるものを選んでください．
+    </p>
+</div>
+
+<div>
+
+<div style="background-color:#e6e6e6;">
+  {% formfield player.ratemo_13 %}
+</div>
+<div style="background-color:#e6e6e6;">
+  {% formfield player.ratemo_14 %}
+</div>
+<div style="background-color:#e6e6e6;">
+  {% formfield player.ratemo_15 %}
+</div>
+<div style="background-color:#e6e6e6;">
+  {% formfield player.ratemo_16 %}
+</div>
+<div style="background-color:#e6e6e6;">
+  {% formfield player.ratemo_17 %}
+</div>
+<div style="background-color:#e6e6e6;">
+  {% formfield player.ratemo_18 %}
+</div>
+<div style="background-color:#e6e6e6;">
+  {% formfield player.ratemo_19 %}
+</div>
+<div style="background-color:#e6e6e6;">
+  {% formfield player.ratemo_20 %}
+</div>
+<div style="background-color:#e6e6e6;">
+  {% formfield player.ratemo_21 %}
+</div>
+<div style="background-color:#e6e6e6;">
+  {% formfield player.ratemo_22 %}
+</div>
+<div style="background-color:#e6e6e6;">
+  {% formfield player.ratemo_23 %}
+</div>
+<div style="background-color:#e6e6e6;">
+  {% formfield player.ratemo_24 %}
+</div>
+
+
+    {% next_button %}
+
+{% endblock %}

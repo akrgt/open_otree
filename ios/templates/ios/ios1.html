@@ -1,0 +1,25 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    質問：
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        以下の質問について，最もあてはまる(最も近い)選択肢を選んでください．
+    </p>
+<div class="container">
+
+    <div style="background-color:#e6e6e6;">
+        <div style="text-align:center;"><img src="{% static "ios/Q6.jpg" %}" width="80%" align="center"/></div><br>
+        <div style="text-align:center;">{% formfield player.ios_6 %}</div>
+    </div>
+</div>
+    <br>
+
+    {% next_button %}
+
+
+{% endblock %}

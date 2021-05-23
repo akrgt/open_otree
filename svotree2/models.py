@@ -35,15 +35,7 @@ class Player(BasePlayer):
     slider6 = models.FloatField()
     slider_angle = models.DecimalField(decimal_places=2, max_digits=5)
     slider_classification = models.CharField()
-    slider7 = models.FloatField()
-    slider8 = models.FloatField()
-    slider9 = models.FloatField()
-    slider10 = models.FloatField()
-    slider11 = models.FloatField()
-    slider12 = models.FloatField()
-    slider13 = models.FloatField()
-    slider14 = models.FloatField()
-    slider15 = models.FloatField()
+
 
     nine_item_tdm_1 = models.CharField()
     nine_item_tdm_2 = models.CharField()
