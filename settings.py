@@ -35,15 +35,9 @@ SESSION_CONFIGS = [
      ),
     dict(
         name="trust_and",
-        display_name= "信頼ゲームとBRETと一般的信頼",
+        display_name= "信頼ゲームと一般的信頼",
         num_demo_participants= 2,
-        app_sequence= ['trust','bret','Trust_gen'],
-     ),
-    dict(
-        name="bret",
-        display_name= "Bomb Risk Elicitation Test",
-        num_demo_participants= None,
-        app_sequence= ['bret'],
+        app_sequence= ['trust','Trust_gen'],
      ),
      dict(
         name="svo",
